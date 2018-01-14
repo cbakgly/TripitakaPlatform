@@ -26,4 +26,5 @@ urlpatterns = [
     path('batchtasks/create', BatchTaskCreate.as_view(), name='batchtasks_create'),
     path('correct/<int:task_id>/', do_correct_task, name='do_correct_task'),
     path('correct/<int:task_id>/reeltext', update_correct_task_result, name='update_correct_task_result'),
+    path('tasks/correct/', correct_task_list, name='correct_task_list'),
 ]

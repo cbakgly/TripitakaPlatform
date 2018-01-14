@@ -268,3 +268,10 @@ class LQMarkDoubt(DoubtBase):
     class Meta:
         verbose_name = '定本格式标注存疑'
         verbose_name_plural = '定本格式标注存疑'
+
+#my MyUtility Ｃlass 
+class MyUtility(object):
+    @staticmethod
+    def LookValue(nKey,hastb):
+        d=dict(hastb)
+        return d[nKey]

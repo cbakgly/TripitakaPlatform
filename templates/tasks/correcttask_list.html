@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+{% if tasks %}
+
+
+<table class="table table-bordered" >
+    <!-- cloumn def  -->
+    <!-- 批次号，龙泉经名，藏 经 第几卷 优先级 阶段 进度 状态 发布人 发布时间 领取人 领取时间  完成时间   -->    
+    <!-- 龙泉经名，藏 经 第几卷 没有加 --> 
+    <tr>
+        <th>批次号</th>    <th>id</th>    <th>经卷</th>
+        <th>优先级</th>    <th>阶段</th>   <th>进度</th> 
+        <th>状态</th>     <th>发布人</th>  <th>发布时间</th>
+        <th>领取人</th>     <th>领取时间</th>  <th> 完成时间</th>        
+    </tr>
+    <!-- row content -->
+    {% for task in tasks %}        
+    <tr> 
+      <th>{{ task.batch_task.batch_no }}</th>
+      <th><a href="/task/correct/{{ task.id }}/">{{ task.id }}</a></th>
+      <th>{{ task.reel }}</th>
+
+      <th>{{ task.priority_str }}</th>
+      <th>{{ task.task_no_str }}</th>
+      <th>{{ task.progress }}</th>
+      
+      <th>{{ task.status_str }}</th>
+      <th>{{ task.publisher }}</th>
+      <th >{{ task.created_at.strftime('%Y-%m-%d %H:%M:%S')  }}  </th>
+      
+      <th>{{ task.picker }}</th>
+      <th>{{ task.picked_at }}</th>
+      <th >{{ task.finished_at  }}  </th>
+
+    </tr> 
+    {% endfor %} 
+</table>
+
+
+{% else %}
+<p>无批次任务</p>
+{% endif %}
+{% endblock %}

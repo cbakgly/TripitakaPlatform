@@ -72,3 +72,11 @@ def update_correct_task_result(request, task_id):
             separators_json = json.dumps(separators, separators=(',', ':'))
             Task.objects.filter(id=task_id).update(result=reel_text, separators=separators_json)
     return redirect('do_correct_task', task_id=task_id)
+
+def correct_task_list(request):
+    tasks = Task.objects.all()    
+    for task in tasks:
+        task.priority_str = MyUtility.LookValue(task.priority,ＴaskBase.PRIORITY_CHOICES)
+        task.task_no_str = MyUtility.LookValue(task.task_no,Ｔask.TASK_NO_CHOICES)
+        task.status_str = MyUtility.LookValue(task.status,Ｔask.STATUS_CHOICES)
+    return render(request, 'tasks/correcttask_list.html', {'tasks': tasks})
