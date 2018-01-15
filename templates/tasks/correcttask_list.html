@@ -6,18 +6,18 @@
 <table class="table table-bordered" >
     <!-- cloumn def  -->
     <!-- 批次号，龙泉经名，藏 经 第几卷 优先级 阶段 进度 状态 发布人 发布时间 领取人 领取时间  完成时间   -->    
-    <!-- 龙泉经名，藏 经 第几卷 没有加 --> 
+    <!-- 龙泉经名，藏 经 第几卷 没有加 <th>id</th>  --> 
     <tr>
-        <th>批次号</th>    <th>id</th>    <th>经卷</th>
+        <th>批次号</th>      <th>经卷</th>
         <th>优先级</th>    <th>阶段</th>   <th>进度</th> 
         <th>状态</th>     <th>发布人</th>  <th>发布时间</th>
         <th>领取人</th>     <th>领取时间</th>  <th> 完成时间</th>        
+        <th> 操作 </th> 
     </tr>
     <!-- row content -->
     {% for task in tasks %}        
     <tr> 
-      <th>{{ task.batch_task.batch_no }}</th>
-      <th><a href="/task/correct/{{ task.id }}/">{{ task.id }}</a></th>
+      <th>{{ task.batch_task.batch_no }}</th>      
       <th>{{ task.reel }}</th>
 
       <th>{{ task.priority_str }}</th>
@@ -30,7 +30,11 @@
       
       <th>{{ task.picker }}</th>
       <th>{{ task.picked_at }}</th>
-      <th >{{ task.finished_at  }}  </th>
+      <th >{{ task.finished_at  }}  </th>      
+      <th><a href="/admin/tasks/task/{{ task.id }}/change/">查看</a>
+          <a href="/admin/tasks/task/{{ task.id }}/change/">编辑</a> 
+          <a href="/admin/tasks/task/{{ task.id }}/delete/">删除</a>
+          <a href="/task/correct/1/">暂停</a> </th>
 
     </tr> 
     {% endfor %} 
