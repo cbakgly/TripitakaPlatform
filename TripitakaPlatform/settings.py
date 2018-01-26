@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap3',
     'django_extensions',
+    'xadmin',
+    'crispy_forms',
+    'users',
 ]
 
 MIDDLEWARE = [

@@ -18,10 +18,12 @@ from django.conf.urls.static import static
 from django.urls import include, path
 
 from tasks.views import *
-
+import xadmin
+from users import adminx
 urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
+    path('xadmin/',xadmin.site.urls),
     path('batchtasks/', batchtask_list),
     path('batchtasks/create', BatchTaskCreate.as_view(), name='batchtasks_create'),
     path('correct/<int:task_id>/', do_correct_task, name='do_correct_task'),

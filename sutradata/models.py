@@ -20,7 +20,7 @@ class LQSutra(models.Model, TripiMixin):
     sid = models.CharField(verbose_name='龙泉经目经号编码', max_length=8) #（为"LQ"+ 经序号 + 别本号）
     name = models.CharField(verbose_name='龙泉经目名称', max_length=64, blank=False)
     total_reels = models.IntegerField(verbose_name='总卷数', blank=True, default=1)
-
+    objects = models.Manager()
     class Meta:
         verbose_name = u"龙泉经目"
         verbose_name_plural = u"龙泉经目"
@@ -135,4 +135,3 @@ class Page(models.Model):
 #     class Meta:
 #         verbose_name = '字信息'
 #         verbose_name_plural = '字信息'
-

@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from .models import CompareReel, CompareSeg, BatchTask, Task, CorrectSeg
+from .models import CompareReel
+from .models import CompareSeg, BatchTask, Task, CorrectSeg
 
 admin.site.register(CompareReel)
 admin.site.register(CompareSeg)
@@ -12,3 +13,4 @@ admin.site.register(CorrectSeg)
 # admin.site.register(PunctResult)
 # admin.site.register(CharFeedback)
 # admin.site.register(JudgementFeedback)
+
