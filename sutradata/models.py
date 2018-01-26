@@ -8,7 +8,7 @@ class TripiMixin(object):
 class Tripitaka(models.Model, TripiMixin):
     code = models.CharField(verbose_name='实体藏经版本编码', max_length=2, blank=False)
     name = models.CharField(verbose_name='实体藏经名称', max_length=32, blank=False)
-
+    objects = models.Manager() #清除no ‘objects’的报错
     class Meta:
         verbose_name = '实体藏经'
         verbose_name_plural = '实体藏经管理'
